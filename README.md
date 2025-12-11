@@ -1,10 +1,8 @@
 # Preview for Mastodon Taiwanese translations
 
-Last update: 2025-12-11.
-
 Since Mastodon only activates a locale after it's sufficiently translated, it's a little hard to put the translated strings into context without making a local version that enables the language. This is an attempt to automate that.
 
-Upstream `main` sits in the `main` branch. I plan to manually periodically update it then rebase this minimal branch on top of it.
+I plan to keep this up with upstream. Since GitHub provides a sync fork button I would just use that and ignore how it adds merge commits and makes the history a mess; this is meant to be for easy preview, not to be mergable into upstream.
 
 ## Making a preview build
 
@@ -15,14 +13,13 @@ This is adopted from the [main DEVELOPMENT.md](https://github.com/mastodon/masto
   - Wait for the environment to build (takes a few minutes)
 - When the editor is ready, run `bin/dev` in the terminal to start the instance
 - Wait for the editor to show an *Open in Browser* prompt and click it. This will open the front-facing page of the instance in your browser
-- Go to the `Ports` tab, find the "stream" item, right click and change its *Port visibility* to *Public*
+- Go to the `Ports` tab in the codespace, find the "stream" item, right click and change its *Port visibility* to *Public*
+- In the browser, go to the Mastodon tab and log in with the default admin user:
+  - The username is `admin@<domain>`, where domain is the domain that your browser connected to. For instance, `super-space-winner-5ggxj99w5x9f74r-3000.app.github.dev`. This is different for every codespace.
+  - The password is `mastodonadmin`.
+- After logging in, visit Mastodon's preferences to change the language.
 
-Now you have access to a development instance. Stop the command in the codespace to spin it down.
-
-Because the preferences are only available after log in, you have to log in to a user. The development instance provides a default admin user, which can be used to log in.
-
-- The username is `admin@<domain>`, where domain is the domain that your browser connected to. For instance, `super-space-winner-5ggxj99w5x9f74r-3000.app.github.dev`. This is different for every codespace.
-- The password is `mastodonadmin`.
+You can see a list of all your codespaces at <https://github.com/codespaces>. They can be stopped or deleted there.
 
 ## Bike shedding
 
