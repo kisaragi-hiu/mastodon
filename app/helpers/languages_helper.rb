@@ -200,6 +200,7 @@ module LanguagesHelper
     ldn: ['Láadan', 'Láadan'].freeze,
     lfn: ['Lingua Franca Nova', 'lingua franca nova'].freeze,
     moh: ['Mohawk', 'Kanienʼkéha'].freeze,
+    nan: ['Taiwanese (Hokkien)', '台語（閩南語）'].freeze,
     nds: ['Low German', 'Plattdüütsch'].freeze,
     pdc: ['Pennsylvania Dutch', 'Pennsilfaani-Deitsch'].freeze,
     sco: ['Scots', 'Scots'].freeze,

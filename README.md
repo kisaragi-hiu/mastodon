@@ -1,99 +1,31 @@
-> [!NOTE]
-> Want to learn more about Mastodon?
-> Click below to find out more in a video.
+# Preview for Mastodon Taiwanese translations
 
-<p align="center">
-  <a style="text-decoration:none" href="https://www.youtube.com/watch?v=IPSbNdBmWKE">
-    <img alt="Mastodon hero image" src="https://github.com/user-attachments/assets/ef53f5e9-c0d8-484d-9f53-00efdebb92c3" />
-  </a>
-</p>
+Last update: 2025-12-11.
 
-<p align="center">
-  <a style="text-decoration:none" href="https://github.com/mastodon/mastodon/releases">
-    <img src="https://img.shields.io/github/release/mastodon/mastodon.svg" alt="Release" /></a>
-  <a style="text-decoration:none" href="https://github.com/mastodon/mastodon/actions/workflows/test-ruby.yml">
-    <img src="https://github.com/mastodon/mastodon/actions/workflows/test-ruby.yml/badge.svg" alt="Ruby Testing" /></a>
-  <a style="text-decoration:none" href="https://crowdin.com/project/mastodon">
-    <img src="https://d322cqt584bo4o.cloudfront.net/mastodon/localized.svg" alt="Crowdin" /></a>
-</p>
+Since Mastodon only activates a locale after it's sufficiently translated, it's a little hard to put the translated strings into context without making a local version that enables the language. This is an attempt to automate that.
 
-Mastodon is a **free, open-source social network server** based on [ActivityPub](https://www.w3.org/TR/activitypub/) where users can follow friends and discover new ones. On Mastodon, users can publish anything they want: links, pictures, text, and video. All Mastodon servers are interoperable as a federated network (users on one server can seamlessly communicate with users from another one, including non-Mastodon software that implements ActivityPub!)
+Upstream `main` sits in the `main` branch. I plan to manually periodically update it then rebase this minimal branch on top of it.
 
-## Navigation
+## Making a preview build
 
-- [Project homepage 🐘](https://joinmastodon.org)
-- [Donate to support development 🎁](https://joinmastodon.org/sponsors#donate)
-  - [View sponsors](https://joinmastodon.org/sponsors)
-- [Blog 📰](https://blog.joinmastodon.org)
-- [Documentation 📚](https://docs.joinmastodon.org)
-- [Official container image 🚢](https://github.com/mastodon/mastodon/pkgs/container/mastodon)
+This is adopted from the [main DEVELOPMENT.md](https://github.com/mastodon/mastodon/blob/main/docs/DEVELOPMENT.md).
 
-## Features
+- Visit https://codespaces.new/kisaragi-hiu/mastodon?quickstart=1&devcontainer_path=.devcontainer%2Fcodespaces%2Fdevcontainer.json which creates a new codespace
+  - Confirm the options
+  - Wait for the environment to build (takes a few minutes)
+- When the editor is ready, run `bin/dev` in the terminal to start the instance
+- Wait for the editor to show an *Open in Browser* prompt and click it. This will open the front-facing page of the instance in your browser
+- Go to the `Ports` tab, find the "stream" item, right click and change its *Port visibility* to *Public*
 
-<img src="./app/javascript/images/elephant_ui_working.svg?raw=true" align="right" width="30%" />
+Now you have access to a development instance. Stop the command in the codespace to spin it down.
 
-**Part of the Fediverse. Based on open standards, with no vendor lock-in.** - the network goes beyond just Mastodon; anything that implements ActivityPub is part of a broader social network known as [the Fediverse](https://jointhefediverse.net/). You can follow and interact with users on other servers (including those running different software), and they can follow you back.
+Because the preferences are only available after log in, you have to log in to a user. The development instance provides a default admin user, which can be used to log in.
 
-**Real-time, chronological timeline updates** - updates of people you're following appear in real-time in the UI.
+- The username is `admin@<domain>`, where domain is the domain that your browser connected to. For instance, `super-space-winner-5ggxj99w5x9f74r-3000.app.github.dev`. This is different for every codespace.
+- The password is `mastodonadmin`.
 
-**Media attachments** - upload and view images and videos attached to the updates. Videos with no audio track are treated like animated GIFs; normal videos loop continuously.
+## Bike shedding
 
-**Safety and moderation tools** - Mastodon includes private posts, locked accounts, phrase filtering, muting, blocking, and many other features, along with a reporting and moderation system.
+The language code is `nan`. It would be better if it's `nan-TW`, but `nan` is what Crowdin already syncs translations to, frustratingly. It would be even better if it's `ftg`, but that's pending [ISO 639-3 Change Request 2021-044](https://iso639-3.sil.org/request/2021-044).
 
-**OAuth2 and a straightforward REST API** - Mastodon acts as an OAuth2 provider, and third party apps can use the REST and Streaming APIs. This results in a [rich app ecosystem](https://joinmastodon.org/apps) with a variety of choices!
-
-## Deployment
-
-### Tech stack
-
-- [Ruby on Rails](https://github.com/rails/rails) powers the REST API and other web pages.
-- [PostgreSQL](https://www.postgresql.org/) is the main database.
-- [Redis](https://redis.io/) and [Sidekiq](https://sidekiq.org/) are used for caching and queueing.
-- [Node.js](https://nodejs.org/) powers the streaming API.
-- [React.js](https://reactjs.org/) and [Redux](https://redux.js.org/) are used for the dynamic parts of the interface.
-- [BrowserStack](https://www.browserstack.com/) supports testing on real devices and browsers. (This project is tested with BrowserStack)
-- [Chromatic](https://www.chromatic.com/) provides visual regression testing. (This project is tested with Chromatic)
-
-### Requirements
-
-- **Ruby** 3.2+
-- **PostgreSQL** 14+
-- **Redis** 7.0+
-- **Node.js** 20+
-
-This repository includes deployment configurations for **Docker and docker-compose**, as well as for other environments like Heroku and Scalingo. For Helm charts, reference the [mastodon/chart repository](https://github.com/mastodon/chart). A [**standalone** installation guide](https://docs.joinmastodon.org/admin/install/) is available in the main documentation.
-
-## Contributing
-
-Mastodon is **free, open-source software** licensed under **AGPLv3**. We welcome contributions and help from anyone who wants to improve the project.
-
-You should read the overall [CONTRIBUTING](https://github.com/mastodon/.github/blob/main/CONTRIBUTING.md) guide, which covers our development processes.
-
-You should also read and understand the [CODE OF CONDUCT](https://github.com/mastodon/.github/blob/main/CODE_OF_CONDUCT.md) that enables us to maintain a welcoming and inclusive community. Collaboration begins with mutual respect and understanding.
-
-You can learn about setting up a development environment in the [DEVELOPMENT](docs/DEVELOPMENT.md) documentation.
-
-If you would like to help with translations 🌐 you can do so on [Crowdin](https://crowdin.com/project/mastodon).
-
-## LICENSE
-
-Copyright (c) 2016-2025 Eugen Rochko (+ [`mastodon authors`](AUTHORS.md))
-
-Licensed under GNU Affero General Public License as stated in the [LICENSE](LICENSE):
-
-```text
-Copyright (c) 2016-2025 Eugen Rochko & other Mastodon contributors
-
-This program is free software: you can redistribute it and/or modify it under
-the terms of the GNU Affero General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
-details.
-
-You should have received a copy of the GNU Affero General Public License along
-with this program. If not, see https://www.gnu.org/licenses/
-```
+I use "Taiwanese (Hokkien)" and "台語（閩南語）" in `languages_helper.rb` [like has been done in Pleroma](https://git.pleroma.social/pleroma/pleroma-fe/-/merge_requests/1841#note_101496).
