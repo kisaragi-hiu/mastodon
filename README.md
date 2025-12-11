@@ -11,6 +11,7 @@ This is adopted from the [main DEVELOPMENT.md](https://github.com/mastodon/masto
 - Visit https://codespaces.new/kisaragi-hiu/mastodon?quickstart=1&devcontainer_path=.devcontainer%2Fcodespaces%2Fdevcontainer.json which creates a new codespace
   - Confirm the options
   - Wait for the environment to build (takes a few minutes)
+- Make sure the codespace is on the `taigi` branch at the bottom left. It should be by default, but if it isn't, switch to it.
 - When the editor is ready, run `bin/dev` in the terminal to start the instance
 - Wait for the editor to show an *Open in Browser* prompt and click it. This will open the front-facing page of the instance in your browser
 - Go to the `Ports` tab in the codespace, find the "stream" item, right click and change its *Port visibility* to *Public*
