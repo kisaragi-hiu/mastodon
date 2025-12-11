@@ -1,5 +1,7 @@
 # Preview for Mastodon Taiwanese translations
 
+![](./20251211T200021+0900-mastodon-taigi.png)
+
 Since Mastodon only activates a locale after it's sufficiently translated, it's a little hard to put the translated strings into context without making a local version that enables the language. This is an attempt to automate that.
 
 I plan to keep this up with upstream. Since GitHub provides a sync fork button I would just use that and ignore how it adds merge commits and makes the history a mess; this is meant to be for easy preview, not to be mergable into upstream.
